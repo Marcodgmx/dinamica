@@ -11,7 +11,7 @@ export var teta2;
 
 //VEL & AC
 export const initW2 = 100 * (2 * Math.PI) * (1 / 60);
-export const alfa = 13;
+export const alfa2 = 13;
 
 //ITERATE THROUGH
 export const min = 0;

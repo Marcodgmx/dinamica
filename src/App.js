@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import { getVels } from "./hooks/useVel";
 import { getAngles } from "./hooks/usePosition";
+import { getAcc } from "./hooks/useAcc";
 
 const data = [
   {
@@ -60,7 +61,8 @@ const data = [
 function App() {
   const dataPosition = getAngles();
   const [dataVels, generalData] = getVels(dataPosition);
-  console.log(dataVels);
+  const [dataAccs, generalData2] = getAcc(generalData);
+  console.log(generalData2);
   return (
     <div className="App">
       <header className="App-header">
@@ -92,6 +94,27 @@ function App() {
           <Line name="w3" type="monotone" dataKey="w3" stroke="#f55812" />
           <Line name="w4" type="monotone" dataKey="w4" stroke="#f19af3" />
           <Line name="w5" type="monotone" dataKey="w5" stroke="#812e7a" />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Legend verticalAlign="top" height={36} />
+          <XAxis dataKey="xAxis" />
+          <Tooltip />
+          <YAxis />
+        </LineChart>
+        <LineChart
+          width={1200}
+          height={500}
+          data={dataAccs}
+          margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        >
+          <Line name="Aax" type="monotone" dataKey="Aax" stroke="#8884d8" />
+          <Line name="Aax" type="monotone" dataKey="Aay" stroke="#f55812" />
+          <Line name="alfa3" type="monotone" dataKey="alfa3" stroke="#f19af3" />
+          <Line name="alfa4" type="monotone" dataKey="alfa4" stroke="#812e7a" />
+          <Line name="Abx" type="monotone" dataKey="Abx" stroke="#812e7a" />
+          <Line name="Aby" type="monotone" dataKey="Aby" stroke="#812e7a" />
+          <Line name="Adx" type="monotone" dataKey="Adx" stroke="#812e7a" />
+          <Line name="Ady" type="monotone" dataKey="Ady" stroke="#812e7a" />
+          <Line name="alfa5" type="monotone" dataKey="alfa5" stroke="#812e7a" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Legend verticalAlign="top" height={36} />
           <XAxis dataKey="xAxis" />
