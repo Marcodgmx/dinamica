@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/dinamica/static/css/main.073c9b0a.css",
-    "main.js": "/dinamica/static/js/main.a3bbf453.js",
+    "main.js": "/dinamica/static/js/main.bff862c5.js",
     "static/js/787.22acbf7c.chunk.js": "/dinamica/static/js/787.22acbf7c.chunk.js",
     "static/media/logo.svg": "/dinamica/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/dinamica/index.html",
     "main.073c9b0a.css.map": "/dinamica/static/css/main.073c9b0a.css.map",
-    "main.a3bbf453.js.map": "/dinamica/static/js/main.a3bbf453.js.map",
+    "main.bff862c5.js.map": "/dinamica/static/js/main.bff862c5.js.map",
     "787.22acbf7c.chunk.js.map": "/dinamica/static/js/787.22acbf7c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.a3bbf453.js"
+    "static/js/main.bff862c5.js"
   ]
 }
