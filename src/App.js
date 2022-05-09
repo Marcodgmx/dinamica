@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import useW2, { getWData } from "./hooks/useVel";
+import { getVels } from "./hooks/useVel";
 import { getAngles } from "./hooks/usePosition";
 
 const data = [
@@ -58,9 +58,9 @@ const data = [
 ];
 
 function App() {
-  const dataW2 = useW2();
-  const dataw = getWData();
   const dataPosition = getAngles();
+  const [dataVels, generalData] = getVels(dataPosition);
+  console.log(dataVels);
   return (
     <div className="App">
       <header className="App-header">
@@ -85,18 +85,17 @@ function App() {
         <LineChart
           width={1200}
           height={500}
-          data={dataW2}
+          data={dataVels}
           margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
         >
-          <Line name="w2" type="monotone" dataKey="W2" stroke="#8884d8" />
+          <Line name="w2" type="monotone" dataKey="w2" stroke="#8884d8" />
+          <Line name="w3" type="monotone" dataKey="w3" stroke="#f55812" />
+          <Line name="w4" type="monotone" dataKey="w4" stroke="#f19af3" />
+          <Line name="w5" type="monotone" dataKey="w5" stroke="#812e7a" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Legend verticalAlign="top" height={36} />
           <XAxis dataKey="xAxis" />
-          <Tooltip
-            formatter={(value, name, props) => [
-              `Degree : ${props.payload.degree} - w2 : ${value}`,
-            ]}
-          />
+          <Tooltip />
           <YAxis />
         </LineChart>
       </header>
