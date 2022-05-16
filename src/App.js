@@ -61,8 +61,8 @@ const data = [
 function App() {
   const dataPosition = getAngles();
   const [dataVels, generalData] = getVels(dataPosition);
-  const [dataAccs, generalData2] = getAcc(generalData);
-  console.log(generalData2);
+  const [dataAccs, generalData2, dataAccG] = getAcc(generalData);
+  console.log(dataAccG);
   return (
     <div className="App">
       <header className="App-header">
@@ -115,6 +115,26 @@ function App() {
           <Line name="Adx" type="monotone" dataKey="Adx" stroke="#812e7a" />
           <Line name="Ady" type="monotone" dataKey="Ady" stroke="#812e7a" />
           <Line name="alfa5" type="monotone" dataKey="alfa5" stroke="#812e7a" />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <Legend verticalAlign="top" height={36} />
+          <XAxis dataKey="xAxis" />
+          <Tooltip />
+          <YAxis />
+        </LineChart>
+        <LineChart
+          width={1200}
+          height={500}
+          data={dataAccG}
+          margin={{ top: -5, right: 20, bottom: 5, left: 0 }}
+        >
+          <Line name="A2x" type="monotone" dataKey="A2x" stroke="#8884d8" />
+          <Line name="A2y" type="monotone" dataKey="A2y" stroke="#f55812" />
+          <Line name="A3x" type="monotone" dataKey="A3x" stroke="#f19af3" />
+          <Line name="A3y" type="monotone" dataKey="A3y" stroke="#812e7a" />
+          <Line name="A4x" type="monotone" dataKey="A4x" stroke="#8884d8" />
+          <Line name="A4y" type="monotone" dataKey="A4y" stroke="#812e7a" />
+          <Line name="A5x" type="monotone" dataKey="A5x" stroke="#8884d8" />
+          <Line name="A5y" type="monotone" dataKey="A5y" stroke="#812e7a" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Legend verticalAlign="top" height={36} />
           <XAxis dataKey="xAxis" />
