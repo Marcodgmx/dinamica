@@ -12,6 +12,7 @@ import {
 import { getVels } from "./hooks/useVel";
 import { getAngles } from "./hooks/usePosition";
 import { getAcc } from "./hooks/useAcc";
+import { getCineticData } from "./hooks/useCinetic";
 
 const data = [
   {
@@ -62,7 +63,7 @@ function App() {
   const dataPosition = getAngles();
   const [dataVels, generalData] = getVels(dataPosition);
   const [dataAccs, generalData2, dataAccG] = getAcc(generalData);
-  console.log(dataAccG);
+  const cinectics = getCineticData(generalData2);
   return (
     <div className="App">
       <header className="App-header">
@@ -135,6 +136,7 @@ function App() {
           <Line name="A4y" type="monotone" dataKey="A4y" stroke="#812e7a" />
           <Line name="A5x" type="monotone" dataKey="A5x" stroke="#8884d8" />
           <Line name="A5y" type="monotone" dataKey="A5y" stroke="#812e7a" />
+          <Line name="Aex" type="monotone" dataKey="Aex" stroke="#812e7a" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Legend verticalAlign="top" height={36} />
           <XAxis dataKey="xAxis" />

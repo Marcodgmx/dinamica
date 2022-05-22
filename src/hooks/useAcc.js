@@ -72,12 +72,6 @@ function getAdx(data) {
   );
 }
 function getAdy(data) {
-  if (data.teta2 === 48) {
-    console.log(
-      0.6 * data.alfa4 * Math.cos(data.teta4 * degTorad) -
-        0.6 * Math.pow(data.w4, 2) * Math.sin(data.teta4 * degTorad)
-    );
-  }
   return (
     0.6 * data.alfa4 * Math.cos(data.teta4 * degTorad) -
     0.6 * Math.pow(data.w4, 2) * Math.sin(data.teta4 * degTorad)
@@ -142,6 +136,13 @@ function getA5y(data) {
     0.48615 * Math.sin(data.teta6 * degTorad) * Math.pow(data.w5, 2)
   );
 }
+function getAex(data) {
+  return (
+    data.Adx +
+    1.2 * data.alfa5 * Math.sin(data.teta6 * degTorad) +
+    1.2 * Math.cos(data.teta6 * degTorad) * Math.pow(data.w5, 2)
+  );
+}
 
 export function getAcc(data) {
   let dataAcc = [];
@@ -182,6 +183,8 @@ export function getAcc(data) {
     p = { ...p, A5x };
     const A5y = getA5y(p);
     p = { ...p, A5y };
+    const Aex = getAex(p);
+    p = { ...p, Aex };
     dataAcc.push({
       teta2: p.teta2,
       Aax,
@@ -204,11 +207,9 @@ export function getAcc(data) {
       A4y,
       A5x,
       A5y,
+      Aex,
       xAxis: `${(p.teta2 * 2) / 360}π`,
     });
-    if (p.teta2 === 48 || p.teta2 === 60) {
-      console.log(p);
-    }
     return p;
   });
   return [dataAcc, data, dataAccG];
